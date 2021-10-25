@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Keypad as Container, Row, Key, KeyRow } from '../../styled/keypad.styled';
 
-function Keypad() {
+function Keypad({ query, setQuery }) {
+
+    const setQ = event => {
+        event.preventDefault();
+        setQuery(event.target.value);
+    }
+
     return (
         <Container>
             <Row className="top" >
