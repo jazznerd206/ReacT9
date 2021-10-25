@@ -50,7 +50,7 @@ export const GlobalStyle = createGlobalStyle`
     left: 0;
     width: 100%; 
     height: 100%;  
-    opacity: .05; 
+    opacity: .06; 
     z-index: -1;
     background: url(${MH});
     background-position: center center;

@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import Keypad from './components/Keypad/Keypad';
+import Screen from './components/Screen/Screen';
+import { App as Container } from './styled/app.styled';
 
 function App() {
 
@@ -9,9 +12,10 @@ function App() {
     }, [])
 
     return (
-        <div>
-            {msg}
-        </div>
+        <Container>
+            <Screen />
+            <Keypad />
+        </Container>
     )
 }
 
