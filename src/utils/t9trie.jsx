@@ -23,7 +23,6 @@ export class Trie {
         let curr = this.root;
         for (let i = 0; i < v.length; i++) {
             let char = parseInt(v[i]);
-            console.log('char :>> ', typeof char);
             if (!curr.map.has(char)) {
                 return [];
             }
@@ -34,7 +33,7 @@ export class Trie {
     deepLookup(v) {
         let curr = this.root;
         for (let i = 0; i < v.length; i++) {
-            let char = v[i];
+            let char = parseInt(v[i]);
             if (!curr.map.has(char)) {
                 return;
             }

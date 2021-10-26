@@ -23,27 +23,18 @@ export const GlobalStyle = createGlobalStyle`
     overflow: visible;
   }
   #root {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-    #root {
-    position: relative;
-    z-index: 1;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
-
-    #root::before {
+  
+  #root::before {
     content: "";
     position: absolute;
     top: 0; 

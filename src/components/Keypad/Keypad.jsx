@@ -1,10 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Keypad as Container, Row, Key, KeyRow } from '../../styled/keypad.styled';
+import { Keypad as Container, Row, Key, ActionKey, KeyRow, SendIt, TrashIt, DeepLookup } from '../../styled/keypad.styled';
 
-function Keypad({ query, setQuery, response, setResponse }) {
+function Keypad({ query, setQuery, response, setResponse, deep, setDeep, clear }) {
+
+
 
     return (
         <Container>
+            <Row className="penthouse">
+                <ActionKey bgcolor="red" onClick={() => clear()}>
+                    <TrashIt />
+                </ActionKey>
+                <ActionKey bgcolor="green" onClick={() => clear()}>
+                    <SendIt />
+                </ActionKey>
+                <ActionKey bgcolor="white">
+                    <DeepLookup active={deep} onClick={() => setDeep(!deep)} />
+                </ActionKey>
+            </Row>
             <Row className="top" >
                 <Key>1</Key>
                 <Key onClick={() => setQuery(query + '2')}>
@@ -50,7 +63,7 @@ function Keypad({ query, setQuery, response, setResponse }) {
                     <KeyRow>0</KeyRow>
                     <KeyRow>_</KeyRow>
                 </Key>
-                <Key onClick={() => setResponse(response.substring(0, response.length - 2))}>
+                <Key onClick={() => deleteChar(response)}>
                     <KeyRow>#</KeyRow>
                     <KeyRow >{"<"}</KeyRow>
                 </Key>

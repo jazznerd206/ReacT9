@@ -26,7 +26,7 @@ function Screen({ query, words, setQuery }) {
                     </MessageRow>
                     <MessageRow>
                         <Message>
-                            {msg}
+                            {msg !== '' ? msg : ''}
                             <Cursor padding={msg.length > 0 ? true : false}>
                                 {'_'}
                             </Cursor>
@@ -35,7 +35,7 @@ function Screen({ query, words, setQuery }) {
                 </Target>
                 <Input>
                     <MessageRow>
-                        {query === '' ? 'type away...' : query}
+                        {query === '' ? 'type away...' : <>{query}<Cursor padding={false}>{'|'}</Cursor></>}
                     </MessageRow>
                     <InputRow>
                         {Array.isArray(words) && words.map((word, index) => {

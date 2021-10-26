@@ -86,7 +86,7 @@ export const Message = styled.div`
 
 export const InputRow = styled.div`
     min-height: 50px;
-    max-height: 100px;
+    max-height: 75px;
     overflow: scroll;
     margin: 0;
     padding: 0;
