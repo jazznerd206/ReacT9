@@ -1,4 +1,11 @@
 import styled from "styled-components";
+import { keyframes } from "styled-components";
+
+const cursor = keyframes`
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+`
 
 export const Screen = styled.div`
     height: 100%;
@@ -11,10 +18,13 @@ export const Screen = styled.div`
     justify-content: flex-end;
     align-items: center;
     flex: 1;
-    border: .5px solid;
+    border-top: 2.5px solid;
+    border-left: 2.5px solid;
+    border-bottom: .5px solid;
+    border-right: 2.5px solid;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-    `
+`
 
 export const Lcd = styled.div`
     width: 100%;
@@ -29,23 +39,32 @@ export const Lcd = styled.div`
 
 export const Target = styled.div`
     margin: 0 auto;
-    padding: .25em;
+    /* padding: .25em; */
     width: 100%;
     display: flex;
     flex: 1;
     flex-flow: column wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+    /* justify-content: flex-start;
+    align-items: flex-start; */
 `
 
 export const Input = styled.div`
-
+    width: 100%;
+    height: min-content;
+    padding: .25em;
+    display: flex;
+    flex: 0;
+    flex-flow: column;
 `
 
 export const System = styled.span`
-    margin: 0;
-    padding: 0;
+    width: 100%;
+    margin: ${props => props.title ? '.25em 0' : '0'};
+    border-bottom: ${props => props.title ? '.25em solid' : '.5px solid'};
+    padding: ${props => props.title ? '.25em' : '0'};
     display: flex;
+    justify-content: ${props => props.align ? props.align : 'flex-start'};
+    flex: 1;
     flex-flow: row wrap;
 `
 
@@ -58,8 +77,10 @@ export const MessageRow = styled.div`
 
 export const Message = styled.div`
     margin: 0;
-    padding: 0;
+    padding: .25em;
     display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-flow: row wrap;
 `
 
@@ -71,6 +92,9 @@ export const InputRow = styled.div`
     padding: 0;
     display: flex;
     flex-flow: row wrap;
+    border-top: .5px solid;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 `
 
 export const Word = styled.p`
@@ -90,4 +114,9 @@ export const Word = styled.p`
         color: rgba(218,165,32);
     }
     transition: all .1s ease-in-out;
+`
+
+export const Cursor = styled.div`
+    animation: ${cursor} 1s infinite;
+    padding-left: ${props => props.padding === false ? '0' : '.5em'};
 `

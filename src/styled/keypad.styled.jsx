@@ -11,7 +11,10 @@ export const Keypad = styled.div`
     justify-content: flex-start;
     align-items: center;
     flex: 0;
-    border: .5px solid;
+    border-top: .5px solid;
+    border-left: 2.5px solid;
+    border-bottom: 2.5px solid;
+    border-right: 2.5px solid;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
 `

@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Lcd, Screen as Container, Input, Target, System, MessageRow, InputRow, Message, Word } from '../../styled/screen.styled';
+import { Lcd, Screen as Container, Input, Target, System, MessageRow, InputRow, Message, Word, Cursor } from '../../styled/screen.styled';
 
-function Screen() {
+function Screen({ query, words, setQuery }) {
 
     const [ msg, setMsg ] = useState('');
-    const [ t9conversion, sett9conversion ] = useState('potential words list');
+
+    const addWord = word => {
+        setMsg(msg + word + " ");
+        setQuery('');
+    }
 
     return (
         <Container>
@@ -16,22 +20,27 @@ function Screen() {
                         </System>
                     </MessageRow>
                     <MessageRow>
-                        <System>
-                            Message:
+                        <System align="center">
+                            Message 1/1
                         </System>
+                    </MessageRow>
+                    <MessageRow>
                         <Message>
                             {msg}
+                            <Cursor padding={msg.length > 0 ? true : false}>
+                                {'_'}
+                            </Cursor>
                         </Message>
                     </MessageRow>
                 </Target>
                 <Input>
                     <MessageRow>
-                        t9 input: 123
+                        {query === '' ? 'type away...' : query}
                     </MessageRow>
                     <InputRow>
-                        {t9conversion.split(' ').map(word => {
+                        {Array.isArray(words) && words.map((word, index) => {
                             return (
-                                <Word key={word} onClick={() => {setMsg(msg + " " + word)}}>
+                                <Word key={`${word} + ${index}`} onClick={() => addWord(word)}>
                                     {word}
                                 </Word>
                             )

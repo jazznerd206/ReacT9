@@ -12,16 +12,12 @@ function App() {
     const _TRIE = buildTrie();
 
     useEffect(() => {
-        console.log('_TRIE :>> ', _TRIE);
-    }, [_TRIE])
-
-    useEffect(() => {
-        console.log('query :>> ', query);
+        setResponse(_TRIE.lookup(query));
     }, [query])
 
     return (
         <Container>
-            <Screen />
+            <Screen query={query} words={response} setQuery={setQuery} />
             <Keypad query={query} setQuery={setQuery}/>
         </Container>
     )

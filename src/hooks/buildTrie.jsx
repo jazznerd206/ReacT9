@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { CreateTrie, SearchTrie, InsertIntoTrie } from '../utils/t9trie.jsx';
+import { Trie, CreateTrie, SearchTrie, InsertIntoTrie } from '../utils/t9trie.jsx';
 import text from '../utils/words.txt';
 
 export const buildTrie = () => {
-    let trie;
+    let trie = new Trie();
     let singleWord = '';
-    let words = [];
     for (let i = 0; i < text.length; i++) {
         if (text[i] === '\n' ) {
-            words.push(singleWord);
-            singleWord = [];
+            if (trie.containsLettersOnly(singleWord) === true) {
+                trie.insert(trie.wordTot9(singleWord), singleWord);
+            }
+            singleWord = '';
         } else {
-            singleWord = singleWord + text[i];
+            singleWord = singleWord + text[i].toLowerCase();;
         }
     }
-    trie = CreateTrie(words);
     return trie;
 }
