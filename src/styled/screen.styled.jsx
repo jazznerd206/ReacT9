@@ -24,9 +24,12 @@ export const Screen = styled.div`
     border-right: 2.5px solid;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 `
 
 export const Lcd = styled.div`
+    padding: .25em;
     width: 100%;
     background: rgba(255,255,255,.75);
     display: flex;
@@ -44,8 +47,6 @@ export const Target = styled.div`
     display: flex;
     flex: 1;
     flex-flow: column wrap;
-    /* justify-content: flex-start;
-    align-items: flex-start; */
 `
 
 export const Input = styled.div`

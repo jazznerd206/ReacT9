@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Lcd, Screen as Container, Input, Target, System, MessageRow, InputRow, Message, Word, Cursor } from '../../styled/screen.styled';
 
-function Screen({ query, words, setQuery }) {
+function Screen({ query, words, setQuery, message, setMessage }) {
 
     const [ msg, setMsg ] = useState('');
 
     const addWord = word => {
-        setMsg(msg + word + " ");
+        setMessage(message + word + " ");
         setQuery('');
     }
 
@@ -26,8 +26,8 @@ function Screen({ query, words, setQuery }) {
                     </MessageRow>
                     <MessageRow>
                         <Message>
-                            {msg !== '' ? msg : ''}
-                            <Cursor padding={msg.length > 0 ? true : false}>
+                            {message !== '' ? message : ''}
+                            <Cursor padding={message.length > 0 ? true : false}>
                                 {'_'}
                             </Cursor>
                         </Message>

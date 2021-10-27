@@ -9,11 +9,12 @@ function App() {
 
     const [ msg, setMsg ] = useState('');
     const [ query, setQuery ] = useState('');
-    const [ response, setResponse ] = useState('');
+    const [ response, setResponse ] = useState();
     const [ deep, setDeep ] = useState(false)
     const _TRIE = buildTrie();
 
     const clearData = () => {
+        console.log('clear');
         setQuery('');
         setResponse('');
     }
@@ -22,16 +23,15 @@ function App() {
         if (deep === false) {
             setResponse(_TRIE.lookup(query));
         } else if (deep === true) {
-            // console.log('setResponse(_TRIE.deepLookup(query)) :>> ', _TRIE.deepLookup(query));
             setResponse(_TRIE.deepLookup(query));
         }
     }, [query])
 
     return (
         <Container>
-            <Screen query={query} words={response} setQuery={setQuery} />
+            <Screen query={query} setQuery={setQuery} words={response} setResponse={setResponse} message={msg} setMessage={setMsg} />
             <Divider />
-            <Keypad query={query} setQuery={setQuery} deep={deep} setDeep={setDeep} clear={clearData} />
+            <Keypad query={query} setQuery={setQuery} deep={deep} setDeep={setDeep} clear={clearData} message={msg} setMessage={setMsg} />
         </Container>
     )
 }

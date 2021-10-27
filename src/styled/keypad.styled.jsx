@@ -3,7 +3,7 @@ import { Send, Trash2, Globe } from '@styled-icons/feather'
 
 export const Keypad = styled.div`
     height: min-content;
-    width: 193px;
+    width: 191px;
     margin: 0 auto;
     padding: 1em;
     background: rgba(0,0,0,.5);
@@ -16,6 +16,8 @@ export const Keypad = styled.div`
     border-left: 2.5px solid;
     border-bottom: 2.5px solid;
     border-right: 2.5px solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
 `

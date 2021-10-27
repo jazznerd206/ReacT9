@@ -19,6 +19,7 @@ export const SideHinge = styled.div`
     border: .5px solid;
     background: silver;
     z-index: 999;
+    border-radius: 2px;
 `
 
 export const MiddleHinge = styled.div`
@@ -27,4 +28,5 @@ export const MiddleHinge = styled.div`
     border: .5px solid;
     background: silver;
     z-index: 999;
+    border-radius: 5px;
 `
